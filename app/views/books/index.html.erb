@@ -1,7 +1,14 @@
 <div>
   <%= flash[:notice] %>
 </div>
-
+<% if @booker.errors.any? %>
+  <%= @booker.errors.count %> error prohibited this obj from being saved:
+  <ul>
+    <%= @booker.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <h1>New book</h1>
 <%= form_with model:@booker, url: '/books', method: :post do |f| %>
