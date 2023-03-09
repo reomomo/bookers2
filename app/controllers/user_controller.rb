@@ -6,7 +6,7 @@ class UserController < ApplicationController
   def edit
     @user = User.find(params[:id])
     user.update
-    redirect_to '/'
+    redirect_to users_path(params.id)
   end
 
   def index

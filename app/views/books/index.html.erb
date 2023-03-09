@@ -1,2 +1,26 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<div>
+  <%= flash[:notice] %>
+</div>
+
+<h1>User info</h1>
+<% image_tag @book.get_image %>
+<%= image_tag 'no_image.jpg' %>
+<h4>name<%= book.user.name %></h4>
+<h4>introduction<%= book.user.introduction %></h4>
+
+<h1>New book</h1>
+<%= form_with model:@book, url: '/books', method: :post do |f| %>
+  <h4>Title</h4>
+  <%= f.text_field :title %>
+  <h4>Opinion</h4>
+  <%= f.text_area :body %>
+  <%= f.submit 'Create Book' %>
+<% end %>
+
+<% @books.each do |book| %>
+<h1>Books</h1>
+<%= image_tag book.get_image %>
+<h4>Title</h4>
+
+<h4>Opinion</h4>
+<% end %>
