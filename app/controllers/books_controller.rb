@@ -4,7 +4,6 @@ class BooksController < ApplicationController
   def index
     @booker = Book.new
     @books = Book.all
-
   end
 
   def create
@@ -61,5 +60,5 @@ class BooksController < ApplicationController
       redirect_to books_path
     end
   end
-
+  
 end
