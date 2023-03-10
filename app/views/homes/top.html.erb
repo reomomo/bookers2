@@ -2,14 +2,20 @@
   <%= flash[:notice] %>
 </div>
 
-<h1>Welcome to Bookers!!</h1>
-<p>In Bookers,</p>
-
-<li>
-  <%= link_to "Log in", user_session_path %>
-</li>
-
-<li>
-  <%= link_to "Sign up", new_user_registration_path %>
-</li>
+<div class="text-align:center">
+  <h1>Welcome to <i class="fa-solid fa-book"></i>Bookers!!</h1>
+  In <p class="font-weight-bold"><i class="fa-solid fa-book"></i>Bookers,</p>
+  you can share and exchange your opinions , inpressions , and emotions<br>
+  about various books!
+  
+  <ul>
+    <li>
+      <%= link_to "Log in", user_session_path, class: 'px-5 border bg-info text-light' %>
+    </li>
+    
+    <li>
+      <%= link_to "Sign up", new_user_registration_path, class: 'px-5 order bg-success text-light' %>
+    </li>
+  </ul>   
+</div>
         
