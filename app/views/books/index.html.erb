@@ -1,7 +1,9 @@
+<!--フラッシュメッセージ-->
 <div>
   <%= flash[:notice] %>
 </div>
 
+<!--バリデーション-->
 <% if @booker.errors.any? %>
   <%= @booker.errors.count %> error prohibited this obj from being saved:
   <ul>
@@ -11,18 +13,26 @@
   </ul>
 <% end %>
 
-<%= render 'list', booker: @booker, user: @user %>
+<!--メイン-->
+<div class="container">
+  <div class="row justify-content-center">
 
-
-
-<% @books.each do |book| %>
-  <h1>Books</h1>
-  
-  <h4>Title</h4>
-  <%= link_to book_path(book.id) do %>
-    <%= book.title %>
-  <% end %>
-
-  <h4>Opinion</h4>
-  <%= book.body %>
-<% end %>
+    <div class="col-md-4">  
+      <%= render 'list', booker: @booker %>
+    
+    <div class="col-md-7 ml-auto">        
+      
+      <% @books.each do |book| %>
+        <h1>Books</h1>
+        
+        <h4>Title</h4>
+        <%= link_to book_path(book.id) do %>
+          <%= book.title %>
+        <% end %>
+      
+        <h4>Opinion</h4>
+        <%= book.body %>
+      <% end %>
+    </div>
+  </div>
+</div>
