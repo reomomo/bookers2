@@ -18,7 +18,7 @@
   <div class="row justify-content-center">
 
     <div class="col-md-4">  
-      <%= render 'list', booker: @booker %>
+      <%= render 'list', booker: @booker, user: User.find(params[:id]) %>
     
     <div class="col-md-7 ml-auto">        
       

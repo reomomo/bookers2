@@ -4,15 +4,37 @@
 </div>
        
 <!--メイン--> 
-<div class="container">
+<div class="container mt-4">
   <div class="row justify-content-center">
     <div class="col-md-4">  
-      <%= render 'books/list', booker: Book.new %>
+      <%= render 'books/list', booker: Book.new, user: @user %>
     </div>
     <div class="col-md-7 ml-auto"> 
-      <%= @user.name %>
-      <%= image_tag @user.get_profile_image(100,100) %>
+      <% @books.each do |book| %>
+        <h1>Books</h1>
+        
+        <table class="table">
+          
+          <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Opinion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <%= link_to book_path(book.id) do %>
+                  <%= book.title %>
+                <% end %>
+              </td>
+              <td>
+                <%= book.body %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
     </div>
   </div>
 </div>
-
