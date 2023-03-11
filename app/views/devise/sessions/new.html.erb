@@ -1,12 +1,12 @@
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-4">   
+  <div class="row">
+    <div class="col-4 ms-4">   
       <h2>Log in</h2>
       
       <%= form_with model: @user, url: user_session_path do |f| %>
         <div class="field">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <%= f.label :name %><br />
+          <%= f.text_field :name, autofocus: true, autocomplete: "email" %>
         </div>
       
         <div class="field">
@@ -22,7 +22,7 @@
         <% end %>
       
         <div class="actions">
-          <%= f.submit "Log in" %>
+          <%= f.submit "Log in", class: 'rounded bg-primary text-light' %>
         </div>
       <% end %>
       
