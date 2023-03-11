@@ -25,13 +25,27 @@
       <% @books.each do |book| %>
         <h1>Books</h1>
         
-        <h4>Title</h4>
-        <%= link_to book_path(book.id) do %>
-          <%= book.title %>
-        <% end %>
-      
-        <h4>Opinion</h4>
-        <%= book.body %>
+        <table class="table">
+          
+          <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Opinion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <%= link_to book_path(book.id) do %>
+                  <%= book.title %>
+                <% end %>
+              </td>
+              <td>
+                <%= book.body %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       <% end %>
     </div>
   </div>
