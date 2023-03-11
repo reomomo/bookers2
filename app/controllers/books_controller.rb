@@ -54,6 +54,7 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :body, :image)
   end
+  
   def is_matching_login_user
     user_id = params[:id].to_i
     unless user_id == current_user.id

@@ -5,28 +5,35 @@
 
 <!--メイン-->
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-4">  
-      <%= render 'list', booker: @booker, user: User.find(params[:id]) %>
+  <div class="row mt-3">
+    <div class="col-md-3">  
+      <%= render 'list', booker: @booker, user: @book.user %>
     </div>
-    <div class="col-md-7 ml-auto"> 
+    <div class="col-md-8 ml-auto"> 
       
       <h1>Book detail</h1>
-      <div>
-        
-        <%= @book.user.name %>
-        <%= @book.title %>
-        <%= @book.body %>
-      </div>
-      
-      
-      <% if @book.user == current_user %>
-       <%= link_to "Edit", edit_book_path(@book.id) %>
-      <% end %>
-      
-      <% if @book.user == current_user %>
-       <%= link_to "Destroy", book_path(@book), method: :delete %>
-      <% end %>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td class="d-flex flex-column" style="width: 10%">
+              <div  class="flex-fill"><%= image_tag @book.user.get_profile_image(100,100) %></div>
+              <div  class="flex-fill"><%= link_to @book.user.name, user_path(@book.user.id)%></div>
+            </td>
+            <td style="width: 25%"><%= @book.title %></td>
+            <td style="width: 45%"><%= @book.body %></td>
+            <td style="width: 5%">
+              <% if @book.user == current_user %>
+                <%= link_to "Edit", edit_book_path(@book.id) %>
+              <% end %>
+            </td>
+            <td style="width: 5%">
+              <% if @book.user == current_user %>
+                <%= link_to "Destroy", book_path(@book), method: :delete %>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

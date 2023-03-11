@@ -1,15 +1,33 @@
+<h1>User info</h1>
+<%= image_tag user.get_profile_image(100,100) %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">name</th>
+      <th scope="col"><%= user.name %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>introduction</td>
+      <td><%= user.introduction %></td>
+    </tr>
+  </tbody>
+</table>
+<div class="text-center">
+  <%= link_to "/users/#{user.id}/edit", class: 'btn btn-light btn-sm btn-block mb-3 border border-dark border-2' do %>
+    <i class="fas fa-user-cog"></i>
+  <% end %>
+</div>  
 
-      <h1>User info</h1>
-      <%= image_tag user.get_profile_image(100,100) %>
-      <h4>name          <%= current_user.name %></h4>
-      <h4>introduction  <%= current_user.introduction %></h4>
-      
-      <h1>New book</h1>
-      <%= form_with model:booker do |f| %>
-        <p>Title</p>
-        <%= f.text_field :title %>
-        <p>Opinion</p>
-        <%= f.text_area :body %>
-        <%= f.submit 'Create Book' %>
-      <% end %>
+<div class="d-flex flex-column">
+<h1>New book</h1>
+<%= form_with model:booker do |f| %>
+  <p>Title</p>
+  <%= f.text_field :title %>
+  <p>Opinion</p>
+  <div  class="flex-fill mb-2"><%= f.text_area :body %></div>
+  <div  class="flex-fill"><%= f.submit 'Create Book', class: 'rounded bg-green-500 text-light' %></div>
+<% end %>
+</div>
     

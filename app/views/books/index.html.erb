@@ -15,38 +15,36 @@
 
 <!--メイン-->
 <div class="container">
-  <div class="row justify-content-center">
-
-    <div class="col-md-4">  
-      <%= render 'list', booker: @booker, user: User.find(params[:id]) %>
-    
-    <div class="col-md-7 ml-auto">        
-      
-      <% @books.each do |book| %>
-        <h1>Books</h1>
-        
-        <table class="table">
-          
-          <thead>
-            <tr>
-              <th scope="col">Title</th>
-              <th scope="col">Opinion</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <%= link_to book_path(book.id) do %>
-                  <%= book.title %>
-                <% end %>
-              </td>
-              <td>
-                <%= book.body %>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      <% end %>
+  <div class="row mt-3">
+    <div class="col-md-3">  
+      <%= render 'list', booker: @booker, user: current_user %>
+    </div>
+    <div class="col-md-8 ml-auto">        
+      <h1>Books</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th style="width: 10%"></th>
+            <th scope="col" style="width: 30%">Title</th>
+            <th scope="col" style="width: 60%">Opinion</th>
+          </tr>
+        </thead>
+        <% @books.each do |book| %>
+        <tbody>
+          <tr>
+            <td><%= image_tag book.user.get_profile_image(100,100) %></td>
+            <td>
+              <%= link_to book_path(book.id) do %>
+                <%= book.title %>
+              <% end %>
+            </td>
+            <td>
+              <%= book.body %>
+            </td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
     </div>
   </div>
 </div>
