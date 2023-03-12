@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     @books = Book.all
     @book = Book.find(params[:id])
     @user_books = @user.books
+    @booker = Book.new
   end
 
   def edit

@@ -19,16 +19,20 @@
               <div  class="flex-fill"><%= image_tag @book.user.get_profile_image(100,100) %></div>
               <div  class="flex-fill"><%= link_to @book.user.name, user_path(@book.user.id)%></div>
             </td>
-            <td style="width: 25%"><%= @book.title %></td>
+            <td style="width: 25%">
+              <%= link_to book_path(@book.id) do %>
+                <%= @book.title %>
+              <% end %>
+            </td>
             <td style="width: 45%"><%= @book.body %></td>
             <td style="width: 5%">
               <% if @book.user == current_user %>
-                <%= link_to "Edit", edit_book_path(@book.id) %>
+                <%= link_to "Edit", edit_book_path(@book.id), class: 'btn btn-success btn-sm btn-block mb-3' %>
               <% end %>
             </td>
             <td style="width: 5%">
               <% if @book.user == current_user %>
-                <%= link_to "Destroy", book_path(@book), method: :delete %>
+                <%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm" => "本当に消しますか？", class: 'btn btn-danger btn-sm btn-block mb-3' %>
               <% end %>
             </td>
           </tr>

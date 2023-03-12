@@ -9,13 +9,13 @@
   </thead>
   <tbody>
     <tr>
-      <td>introduction</td>
-      <td><%= user.introduction %></td>
+      <td><strong>introduction</strong></td>
+      <td><strong><%= user.introduction %></strong></td>
     </tr>
   </tbody>
 </table>
 <div class="text-center">
-  <%= link_to "/users/#{user.id}/edit", class: 'btn btn-light btn-sm btn-block mb-3 border border-dark border-2' do %>
+  <%= link_to "/users/#{user.id}/edit", class: 'btn btn-white btn-sm btn-block mb-3 border border-dark border-2' do %>
     <i class="fas fa-user-cog"></i>
   <% end %>
 </div>  
@@ -23,11 +23,15 @@
 <div class="d-flex flex-column">
 <h1>New book</h1>
 <%= form_with model:booker do |f| %>
-  <p>Title</p>
-  <%= f.text_field :title %>
-  <p>Opinion</p>
-  <div  class="flex-fill mb-2"><%= f.text_area :body %></div>
-  <div  class="flex-fill"><%= f.submit 'Create Book', class: 'btn btn-success mb-3' %></div>
+  <div>
+    <label class="form-label">Title</label>
+    <%= f.text_field :title, class:"form-control" %>
+    <label class="form-label">Opinion</label>
+    <div  class="flex-fill mb-2"><%= f.text_area :body, class:"form-control", rows:"2" %></div>
+    <div  class="flex-fill"><%= f.submit 'Create Book', class: 'btn btn-success mb-3' %></div>
+  </div>
 <% end %>
 </div>
-    
+
+
+  
