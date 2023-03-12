@@ -1,16 +1,18 @@
 <div class="container">
-  <div class="row mt-3">
-    <div class="col-md-3">  
+  <div class="row">
+    <div class="col-md-4">  
       <%= render 'books/list', booker: Book.new, user: current_user %>
     </div>
-    <div class="col-md-8 ml-auto"> 
+    <div class="col-md-8.offset-md-1"> 
+      <div>
       <h1>Users</h1>
+      
       <table class="table">
         <thead>
           <tr>
             <th>image</th>
-            <th scope="col">name</th>
-            <th scope="col"></th>
+            <th>name</th>
+            <th></th>
           </tr>
         </thead>
         <% @users.each do |user| %>
@@ -27,6 +29,7 @@
         </tbody>
         <% end %>
       </table>
+      </div>
     </div>
   </div>
 </div>
