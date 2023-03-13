@@ -1,15 +1,15 @@
- <!--フラッシュメッセージ-->
- <div>
+<!--フラッシュメッセージ-->
+<div>
   <%= flash[:notice] %>
 </div>
 
 <!--メイン-->
-<div class="container">
-  <div class="row mt-3">
-    <div class="col-md-4">  
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">  
       <%= render 'list', booker: @booker, user: @book.user %>
     </div>
-    <div class="col-md-8.offset-md-1"> 
+    <div class="col-md-8 offset-md-1"> 
       <h1>Book detail</h1>
       
       <table class="table">
